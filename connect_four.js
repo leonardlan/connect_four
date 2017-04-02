@@ -1,29 +1,32 @@
 // Connect Four
+var NUM_COLS = 7;
+var NUM_ROWS = 6;
 var matrix;
 var player1 = 1;
 var win_flag = 0;
 
-function initMatrix(){
-    // Initialize the matrix with a two-dimensional array,
-    // with 6 rows and 7 columns, setting all values to 0.
-    matrix = [[0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]];
-    return matrix;
+function zeros(dimensions) {
+    var array = [];
+    for (var i = 0; i < dimensions[0]; ++i) {
+        array.push(dimensions.length == 1 ? 0 : zeros(dimensions.slice(1)));
+    }
+    return array;
 }
 
 function MouseRollover(MyImage) {
-	MyImage.src = "images/column_button_alt.png";
+    MyImage.src = "images/column_button_alt.png";
 }
 
 function MouseOut(MyImage) {
-	MyImage.src = "images/column_button.png";
+    MyImage.src = "images/column_button.png";
 }
 
 function MouseRolloverR(MyImage) {
-	MyImage.src = "images/reset_button_alt.png";
+    MyImage.src = "images/reset_button_alt.png";
 }
 
 function MouseOutR(MyImage) {
-	MyImage.src = "images/reset_button.png";
+    MyImage.src = "images/reset_button.png";
 }
 
 function getDropPosition(matrix, columnPosition){
@@ -139,7 +142,7 @@ function getDiagonalRightToLeftWin(matrix){
 }
 
 function hasWon(){
-	return getRowWin(matrix)||getColumnWin(matrix)||getDiagonalLeftToRightWin(matrix)||getDiagonalRightToLeftWin(matrix);
+    return getRowWin(matrix)||getColumnWin(matrix)||getDiagonalLeftToRightWin(matrix)||getDiagonalRightToLeftWin(matrix);
 }
 
 function isGameOver(matrix){
@@ -154,14 +157,14 @@ function isGameOver(matrix){
 
 function toggle()
 {
-	if(player1===1){
-		player1 = 0;
-		document.getElementById('turn').innerHTML = 'player2\'s turn';
-		return "player2";
-	}
-	player1 = 1;
-	document.getElementById('turn').innerHTML = 'player1\'s turn';
-	return "player1";
+    if(player1===1){
+        player1 = 0;
+        document.getElementById('turn').innerHTML = 'player2\'s turn';
+        return "player2";
+    }
+    player1 = 1;
+    document.getElementById('turn').innerHTML = 'player1\'s turn';
+    return "player1";
 }
 
 // Column Button Mouse Down
@@ -189,17 +192,17 @@ function columnDown(col)
 
 function handleMresetDown()
 {
-	initMatrix();
-	var str;
-	for(var i=1;i<=6;i+=1){
-		for(var j=1;j<=7;j+=1){
-			str = "empty_button"+i+j;
-			document.images[str].src = "images/empty_button.png";
-		}
-	}
-	win_flag = 0;
-	document.getElementById('result').innerHTML = '';
-	return true;
+    matrix = zeros([NUM_ROWS, NUM_COLS]);
+    var str;
+    for(var i=1;i<=6;i+=1){
+        for(var j=1;j<=7;j+=1){
+            str = "empty_button"+i+j;
+            document.images[str].src = "images/empty_button.png";
+        }
+    }
+    win_flag = 0;
+    document.getElementById('result').innerHTML = '';
+    return true;
 }
 
-initMatrix();
+matrix = zeros([NUM_ROWS, NUM_COLS]);

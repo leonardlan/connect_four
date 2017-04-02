@@ -165,154 +165,26 @@ function toggle()
 }
 
 // Column Button Mouse Down
-function handleM1Down()
+function columnDown(col)
 {
-	if(!win_flag){
-		var str = "empty_button", pos = getDropPosition(matrix, 0);
-		setDropValue(matrix, pos, 0, player1);
-		pos+=1;
-		str = str+pos+"1";
-		document.images[str].src = "images/" + toggle() + "_button.png";
-		if(hasWon()){
-			win_flag = 1;
-			if(!player1){
-				document.getElementById('result').innerHTML = 'player1 won';
-			}
-			else
-			{
-				document.getElementById('result').innerHTML = 'player2 won';
-			}
-		}
-	}
-	return true;
-}
-
-function handleM2Down()
-{
-	if(!win_flag){
-	var str = "empty_button", pos = getDropPosition(matrix, 1);
-	setDropValue(matrix, pos, 1, player1);
-	pos+=1;
-	str = str+pos+"2";
-	document.images[str].src = "images/" + toggle() + "_button.png";
-	if(hasWon()){
-		win_flag = 1;
-		if(!player1){
-			document.getElementById('result').innerHTML = 'player1 won';
-		}
-		else
-		{
-			document.getElementById('result').innerHTML = 'player2 won';
-		}
-	}
-	}
-	return true;
-}
-
-function handleM3Down()
-{
-	if(!win_flag){
-	var str = "empty_button", pos = getDropPosition(matrix, 2);
-	setDropValue(matrix, pos, 2, player1);
-	pos+=1;
-	str = str+pos+"3";
-	document.images[str].src = "images/" + toggle() + "_button.png";
-	if(hasWon()){
-		win_flag = 1;
-		if(!player1){
-			document.getElementById('result').innerHTML = 'player1 won';
-		}
-		else
-		{
-			document.getElementById('result').innerHTML = 'player2 won';
-		}
-	}
-	}
-	return true;
-}
-function handleM4Down()
-{
-	if(!win_flag){
-	var str = "empty_button", pos = getDropPosition(matrix, 3);
-	setDropValue(matrix, pos, 3, player1);
-	pos+=1;
-	str = str+pos+"4";
-	document.images[str].src = "images/" + toggle() + "_button.png";
-	if(hasWon()){
-		win_flag = 1;
-		if(!player1){
-			document.getElementById('result').innerHTML = 'player1 won';
-		}
-		else
-		{
-			document.getElementById('result').innerHTML = 'player2 won';
-		}
-	}
-	}
-	return true;
-}
-function handleM5Down()
-{
-	if(!win_flag){
-	var str = "empty_button", pos = getDropPosition(matrix, 4);
-	setDropValue(matrix, pos, 4, player1);
-	pos+=1;
-	str = str+pos+"5";
-	document.images[str].src = "images/" + toggle() + "_button.png";
-	if(hasWon()){
-		win_flag = 1;
-		if(!player1){
-			document.getElementById('result').innerHTML = 'player1 won';
-		}
-		else
-		{
-			document.getElementById('result').innerHTML = 'player2 won';
-		}
-	}
-	}
-	return true;
-}
-function handleM6Down()
-{
-	if(!win_flag){
-	var str = "empty_button", pos = getDropPosition(matrix, 5);
-	setDropValue(matrix, pos, 5, player1);
-	pos+=1;
-	str = str+pos+"6";
-	document.images[str].src = "images/" + toggle() + "_button.png";
-	if(hasWon()){
-		win_flag = 1;
-		if(!player1){
-			document.getElementById('result').innerHTML = 'player1 won';
-		}
-		else
-		{
-			document.getElementById('result').innerHTML = 'player2 won';
-		}
-	}
-	}
-	return true;
-}
-function handleM7Down()
-{
-	if(!win_flag){
-		var str = "empty_button", pos = getDropPosition(matrix, 6);
-		setDropValue(matrix, pos, 6, player1);
-		pos+=1;
-		str = str+pos+"7";
-		document.images[str].src = "images/" + toggle() + "_button.png";
-		if(hasWon()){
-			win_flag = 1;
-			if(!player1){
-				document.getElementById('result').innerHTML = 'player1 won';
-			}
-			else
-			{
-				document.getElementById('result').innerHTML = 'player2 won';
-			}
-		}
-	}
-	return true;
+    if(!win_flag){
+        var str = "empty_button", pos = getDropPosition(matrix, col - 1);
+        setDropValue(matrix, pos, col - 1, player1);
+        pos+=1;
+        str = str+pos+col;
+        document.images[str].src = "images/" + toggle() + "_button.png";
+        if(hasWon()){
+            win_flag = 1;
+            if(!player1){
+                document.getElementById('result').innerHTML = 'player1 won';
+            }
+            else
+            {
+                document.getElementById('result').innerHTML = 'player2 won';
+            }
+        }
+    }
+    return true;
 }
 
 function handleMresetDown()
@@ -322,18 +194,12 @@ function handleMresetDown()
 	for(var i=1;i<=6;i+=1){
 		for(var j=1;j<=7;j+=1){
 			str = "empty_button"+i+j;
-			//document.writeln(str+"\n");
 			document.images[str].src = "images/empty_button.png";
 		}
 	}
 	win_flag = 0;
 	document.getElementById('result').innerHTML = '';
-	//document.writeln("Test1");
 	return true;
 }
 
 initMatrix();
-/*while(!getRowWin(matrix)&&!getColumnWin(matrix)&&!getDiagonalLeftToRightWin(matrix)&&!getDiagonalRightToLeftWin(matrix)&&!isGameOver(matrix)) {
-	document.writeln('Test');
-}*/
-//document.writeln('End of JScript');

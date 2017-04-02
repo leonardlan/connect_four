@@ -11,19 +11,19 @@ function initMatrix(){
 }
 
 function MouseRollover(MyImage) {
-	MyImage.src = "column_button_alt.png";
+	MyImage.src = "images/column_button_alt.png";
 }
 
 function MouseOut(MyImage) {
-	MyImage.src = "column_button.png";
+	MyImage.src = "images/column_button.png";
 }
 
 function MouseRolloverR(MyImage) {
-	MyImage.src = "reset_button_alt.png";
+	MyImage.src = "images/reset_button_alt.png";
 }
 
 function MouseOutR(MyImage) {
-	MyImage.src = "reset_button.png";
+	MyImage.src = "images/reset_button.png";
 }
 
 function getDropPosition(matrix, columnPosition){
@@ -172,7 +172,7 @@ function handleM1Down()
 		setDropValue(matrix, pos, 0, player1);
 		pos+=1;
 		str = str+pos+"1";
-		document.images[str].src = toggle() + "_button.png";
+		document.images[str].src = "images/" + toggle() + "_button.png";
 		if(hasWon()){
 			win_flag = 1;
 			if(!player1){
@@ -194,7 +194,7 @@ function handleM2Down()
 	setDropValue(matrix, pos, 1, player1);
 	pos+=1;
 	str = str+pos+"2";
-	document.images[str].src = toggle() + "_button.png";
+	document.images[str].src = "images/" + toggle() + "_button.png";
 	if(hasWon()){
 		win_flag = 1;
 		if(!player1){
@@ -216,7 +216,7 @@ function handleM3Down()
 	setDropValue(matrix, pos, 2, player1);
 	pos+=1;
 	str = str+pos+"3";
-	document.images[str].src = toggle() + "_button.png";
+	document.images[str].src = "images/" + toggle() + "_button.png";
 	if(hasWon()){
 		win_flag = 1;
 		if(!player1){
@@ -237,7 +237,7 @@ function handleM4Down()
 	setDropValue(matrix, pos, 3, player1);
 	pos+=1;
 	str = str+pos+"4";
-	document.images[str].src = toggle() + "_button.png";
+	document.images[str].src = "images/" + toggle() + "_button.png";
 	if(hasWon()){
 		win_flag = 1;
 		if(!player1){
@@ -258,7 +258,7 @@ function handleM5Down()
 	setDropValue(matrix, pos, 4, player1);
 	pos+=1;
 	str = str+pos+"5";
-	document.images[str].src = toggle() + "_button.png";
+	document.images[str].src = "images/" + toggle() + "_button.png";
 	if(hasWon()){
 		win_flag = 1;
 		if(!player1){
@@ -279,7 +279,7 @@ function handleM6Down()
 	setDropValue(matrix, pos, 5, player1);
 	pos+=1;
 	str = str+pos+"6";
-	document.images[str].src = toggle() + "_button.png";
+	document.images[str].src = "images/" + toggle() + "_button.png";
 	if(hasWon()){
 		win_flag = 1;
 		if(!player1){
@@ -300,7 +300,7 @@ function handleM7Down()
 		setDropValue(matrix, pos, 6, player1);
 		pos+=1;
 		str = str+pos+"7";
-		document.images[str].src = toggle() + "_button.png";
+		document.images[str].src = "images/" + toggle() + "_button.png";
 		if(hasWon()){
 			win_flag = 1;
 			if(!player1){
@@ -323,7 +323,7 @@ function handleMresetDown()
 		for(var j=1;j<=7;j+=1){
 			str = "empty_button"+i+j;
 			//document.writeln(str+"\n");
-			document.images[str].src = "empty_button.png";
+			document.images[str].src = "images/empty_button.png";
 		}
 	}
 	win_flag = 0;
